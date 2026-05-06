@@ -1,0 +1,180 @@
+You are a senior AI platform engineer, frontend architect, and QA lead performing FINAL integration, verification, and polish for a production-grade GenAI application.
+
+THIS IS THE LAST MAIN STEP.
+Stability, correctness, and completeness are the top priorities.
+
+--------------------------------------------------
+STRICT RULES (NON-NEGOTIABLE):
+
+- DO NOT refactor or rewrite existing working code
+- DO NOT remove existing features
+- DO NOT change API contracts unless required for correctness
+- ONLY add functionality in a backward-compatible way
+- If something works, preserve it
+- If something is missing, add it safely
+
+--------------------------------------------------
+PROJECT CONTEXT:
+
+Project Name: Nivesh.ai  
+Type: AI Funding Co-Founder (GenAI + RAG)
+
+CURRENT STATE:
+- Frontend: React / Next.js (working, professional UI)
+- Backend: FastAPI (working)
+- LLM: Gemini (working, dynamic)
+- RAG: Integrated from provided ZIP folder
+- Database: NOT required for this step
+
+GOAL:
+Ensure that:
+1. RAG + Gemini work together perfectly
+2. Frontend has NO dead elements
+3. UI is fully functional and multilingual
+4. Chat responses are structured, human-like, and grounded
+5. The system is stable, error-free, and demo-ready
+
+--------------------------------------------------
+YOUR TASKS (EXECUTE IN THIS EXACT ORDER):
+
+### 1️⃣ FULL RAG + GEMINI VERIFICATION (BACKEND)
+- Verify RAG is correctly loaded at startup
+- Verify document ingestion works (PDFs, docs)
+- Verify retrieval returns relevant context
+- Verify retrieved context is injected into Gemini prompts
+- Verify Gemini remains the final reasoning engine
+
+CRITICAL:
+- RAG must SUPPORT Gemini, not override it
+- If RAG fails, Gemini-only fallback must work
+- No startup or runtime errors allowed
+
+--------------------------------------------------
+### 2️⃣ RAG RESPONSE QUALITY CHECK
+Test multiple queries and confirm:
+- Responses are factual
+- Responses reference retrieved context implicitly
+- No hallucinated policies or schemes
+- No raw document chunks are leaked
+
+If issues exist:
+- Fix retrieval scope or prompt injection
+- Do NOT weaken existing AI logic
+
+--------------------------------------------------
+### 3️⃣ CHAT RESPONSE STRUCTURING (MANDATORY)
+Ensure chat responses are clearly structured:
+
+Required structure:
+- Short advisory opening
+- Sectioned content:
+  • Funding Recommendation
+  • Why This Makes Sense
+  • Risks / Watch-outs
+  • Next Practical Steps
+- Bullet points instead of long paragraphs
+- Clean formatting (Markdown / JSON-safe)
+
+--------------------------------------------------
+### 4️⃣ CHAT HUMANIZATION (CONTROLLED)
+Improve tone carefully:
+- Advisor-like, calm, confident
+- Slightly conversational, NOT casual
+- No emojis
+- No slang
+- No motivational fluff
+
+Example tone:
+“Based on your current stage and context, here’s the practical recommendation.”
+
+--------------------------------------------------
+### 5️⃣ FRONTEND MULTILINGUAL SUPPORT (IMPORTANT)
+Frontend must NOT remain English-only.
+
+Implement multilingual UI support:
+- Language selector (top-level)
+- Support at least:
+  - English
+  - Hindi
+  - Tamil
+  - Telugu (or any additional Indic language)
+- All UI text must be translatable
+- Use i18n-safe patterns (no hardcoded strings)
+
+IMPORTANT:
+- Language switch must NOT break layout
+- Default language = English
+- Chat responses already adapt via backend
+
+--------------------------------------------------
+### 6️⃣ FRONTEND FEATURE COMPLETENESS CHECK
+Audit the entire frontend and ensure:
+
+- NO dead buttons
+- NO dead navbar items
+- NO non-functional links
+
+Specifically:
+- Navbar items (Features, Pricing, etc.) must:
+  - Scroll to sections OR
+  - Open modal OR
+  - Navigate to info page
+
+Choose safest option.
+Dead UI elements are unacceptable.
+
+--------------------------------------------------
+### 7️⃣ FRONTEND PDF / DOCUMENT UPLOAD (RE-VERIFY)
+Ensure:
+- Upload UI is aligned and optional
+- Upload does not block onboarding
+- Upload errors are handled gracefully
+- Uploaded docs influence RAG responses
+
+--------------------------------------------------
+### 8️⃣ UI STABILITY & ERROR CHECK
+Verify:
+- No console errors
+- No React warnings
+- No layout shifts
+- No crashes during:
+  - Language switching
+  - File upload
+  - Chat interaction
+  - RAG retrieval
+
+Add loading states where needed.
+Do NOT add heavy animations.
+
+--------------------------------------------------
+### 9️⃣ FULL SYSTEM TESTING
+Perform a final pass:
+- Backend starts cleanly
+- Frontend builds successfully
+- Chat works end-to-end
+- RAG improves response quality
+- UI remains responsive and professional
+
+--------------------------------------------------
+### 🔟 FINAL AUDIT REPORT (MANDATORY)
+Produce a clear final report with:
+
+- RAG Integration Status
+- Gemini + RAG Interaction Status
+- Multilingual Support Status
+- Frontend Feature Completeness
+- Chat Quality & Structure
+- Error / Stability Status
+- Remaining Risks (if any)
+
+FINAL VERDICT (CHOOSE ONE):
+- ✅ System complete and demo-ready
+- ⚠️ Complete with minor limitations (list them)
+- ❌ Not complete (with exact reasons)
+
+--------------------------------------------------
+IMPORTANT:
+This is a hackathon project, but it must feel production-grade.
+Think like judges are watching the demo live.
+
+Proceed carefully and incrementally.

@@ -1,0 +1,178 @@
+You are a senior AI platform engineer and frontend lead integrating a RAG pipeline into an existing GenAI fullstack product.
+
+CRITICAL MODE:
+- This is the final main step of the project
+- Stability > new features
+- DO NOT break or rewrite existing working logic
+- Additive changes only
+- Preserve current AI behavior and UI
+
+--------------------------------------------------
+PROJECT CONTEXT:
+
+Project Name: Nivesh.ai  
+Type: AI Funding Co-Founder (GenAI)
+
+CURRENT STATE:
+- Frontend: React / Next.js (professional, working)
+- Backend: FastAPI (working)
+- LLM: Gemini (working, dynamic responses)
+- RAG: Available as a ZIP folder (not yet connected)
+- Database: NOT required for this step
+
+GOAL:
+Integrate RAG into the backend to improve factual grounding and reduce hallucinations, while keeping Gemini as the reasoning engine.
+
+--------------------------------------------------
+HIGH-LEVEL ARCHITECTURE (DO NOT CHANGE):
+
+User Query
+→ Context Builder (founder profile + input)
+→ RAG Retriever (documents / PDFs)
+→ Gemini LLM (final reasoning + response)
+→ Structured Advisory Output
+
+RAG supports Gemini, NOT replaces it.
+
+--------------------------------------------------
+YOUR TASKS (EXECUTE IN ORDER):
+
+### 1️⃣ RAG ZIP INTEGRATION (BACKEND)
+- Inspect the provided RAG ZIP folder
+- Understand:
+  - Vector store setup
+  - Embedding model
+  - Retrieval interface
+- Integrate it into FastAPI backend WITHOUT:
+  - Changing Gemini logic
+  - Adding a database
+- Load RAG at application startup
+- Ensure no startup errors
+
+IMPORTANT:
+- RAG must only enhance answers
+- If RAG fails, fallback to Gemini-only response safely
+
+--------------------------------------------------
+### 2️⃣ BACKEND CHAT PIPELINE UPDATE
+Update chat flow carefully:
+
+- Accept:
+  - User query
+  - Founder context
+  - Optional uploaded documents
+- Process:
+  - Retrieve relevant chunks via RAG
+  - Inject retrieved context into Gemini prompt
+- Output:
+  - Structured advisory response
+  - Clear reasoning
+  - Actionable steps
+
+DO NOT return raw chunks to the frontend.
+
+--------------------------------------------------
+### 3️⃣ RESPONSE STRUCTURING (IMPORTANT UX IMPROVEMENT)
+Improve response formatting:
+
+Instead of long paragraphs:
+- Use headings
+- Bullet points
+- Sections:
+  - Funding Recommendation
+  - Why This Path
+  - Risks
+  - Next Steps
+
+Ensure formatting is frontend-friendly (JSON or Markdown-safe).
+
+--------------------------------------------------
+### 4️⃣ CHAT HUMANIZATION (SUBTLE, NOT CHATGPT-LIKE)
+Improve tone:
+- Professional but warm
+- Advisor-like, not robotic
+- Avoid emojis
+- Avoid slang
+- Avoid over-friendliness
+
+Example tone:
+“Based on your current stage, here’s the practical recommendation…”
+
+--------------------------------------------------
+### 5️⃣ FRONTEND – PDF / DOCUMENT UPLOAD (ONBOARDING)
+Add an OPTIONAL feature in onboarding:
+
+- Allow founders to upload:
+  - PDFs
+  - Documents
+- UI placement:
+  - After founder profile fields
+  - Clean, aligned, optional
+- Send uploaded docs to backend for RAG ingestion
+
+IMPORTANT:
+- Upload is optional
+- If no document uploaded, system works as before
+- UI must not break if upload fails
+
+--------------------------------------------------
+### 6️⃣ FRONTEND – NAVBAR FUNCTIONALITY
+Fix non-working navbar items:
+
+For:
+- Features
+- Pricing
+
+Implement ONE of the following (choose safest):
+- Smooth scroll to sections
+OR
+- Modal popup
+OR
+- Static informational page
+
+No dead links allowed.
+
+--------------------------------------------------
+### 7️⃣ UI SAFETY & POLISH
+- Ensure no layout breaks
+- Ensure no console errors
+- Add loading states where RAG retrieval occurs
+- Preserve existing animations and styles
+- Make UI slightly better, not heavier
+
+--------------------------------------------------
+### 8️⃣ ERROR HANDLING & FALLBACKS
+Ensure:
+- If RAG retrieval fails → Gemini still responds
+- If document parsing fails → user is notified gracefully
+- Backend never crashes due to RAG
+
+--------------------------------------------------
+### 9️⃣ FINAL VERIFICATION
+After integration, verify:
+- Backend starts cleanly
+- Chat returns grounded, structured responses
+- Uploaded documents influence answers
+- Frontend remains stable and responsive
+
+--------------------------------------------------
+FINAL OUTPUT REQUIRED:
+
+1. Explanation of:
+   - How RAG is integrated
+   - How Gemini and RAG work together
+2. Confirmation that:
+   - AI is non-static
+   - Hallucination risk is reduced
+3. List of new features added
+4. Confirmation that:
+   - Frontend + Backend + AI + RAG = COMPLETE
+
+--------------------------------------------------
+IMPORTANT RULES:
+- No refactors
+- No feature creep
+- No breaking changes
+- Think like this is a live product demo
+
+This is the final main integration step before submission.

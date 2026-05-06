@@ -1,0 +1,10 @@
+chromadb
+langdetect
+requests
+numpy
+PyPDF2
+pytesseract
+Pillow
+pdf2image
+beautifulsoup4
+lxml
