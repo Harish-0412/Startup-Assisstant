@@ -409,11 +409,11 @@ export async function get7DayActionPlan(): Promise<ActionPlan> {
   }
 }
 
-// Express/RAG endpoints (relative to same origin)
+// Express/RAG endpoints (served by the separately deployed backend)
 export async function uploadPitchDeckPDF(file: File): Promise<any> {
   const form = new FormData();
   form.append('pdf', file);
-  const res = await fetch('/api/documents/upload-pdf', {
+  const res = await fetch(`${API_BASE_URL}/api/documents/upload-pdf`, {
     method: 'POST',
     body: form,
     credentials: 'include'
@@ -426,7 +426,7 @@ export async function uploadPitchDeckPDF(file: File): Promise<any> {
 }
 
 export async function buildVectorDB(): Promise<any> {
-  const res = await fetch('/api/vector-db/build', {
+  const res = await fetch(`${API_BASE_URL}/api/vector-db/build`, {
     method: 'POST',
     credentials: 'include'
   });
@@ -438,7 +438,7 @@ export async function buildVectorDB(): Promise<any> {
 }
 
 export async function searchDocuments(query: string, topK: number = 5): Promise<any> {
-  const res = await fetch('/api/search', {
+  const res = await fetch(`${API_BASE_URL}/api/search`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -459,7 +459,7 @@ export async function askChat(question: string, type: 'general' | 'funding' = 'g
   status: string;
 }> {
   try {
-    const res = await fetch('/api/chat/ask', {
+    const res = await fetch(`${API_BASE_URL}/api/chat/ask`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

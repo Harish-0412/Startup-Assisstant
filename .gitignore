@@ -62,3 +62,4 @@ startup-rag/backend/data/
 # Temporary files
 *.tmp
 *.temp
+.vercel

@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: startupHub-rag-backend
+    name: startuphub-rag-backend
     runtime: python
     region: oregon
     plan: free
@@ -14,7 +14,7 @@ services:
       - key: PYTHON_VERSION
         value: "3.11.0"
       - key: ALLOWED_ORIGINS
-        sync: false
+        value: "https://ai-verse-dun.vercel.app,https://ai-verse-harish-0412s-projects.vercel.app,https://ai-verse-harish-0412-harish-0412s-projects.vercel.app"
     healthCheckPath: /health
     disk:
       name: chromadb-storage
