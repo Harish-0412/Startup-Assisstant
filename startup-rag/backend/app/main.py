@@ -6,21 +6,21 @@ from app.rag_routes import rag_router
 from app.multilingual_rag import ChatRequest, chat_multilingual
 
 app = FastAPI(
-    title="Nivesh.ai Backend",
+    title="StartupHub AI Backend",
     description="AI Funding Co-Founder for Indian Startups",
     version="1.0.0"
 )
 
-# Production-ready CORS configuration
-# Note: FastAPI requires exact origin matches - wildcards like *.vercel.app don't work
-ALLOWED_ORIGINS = os.getenv(
-    "ALLOWED_ORIGINS",
-    "http://localhost:5000,http://localhost:5173,http://localhost:5001,https://verse-rho.vercel.app"
-).split(",")
+# CORS — allow all in dev, restrict to specific origins in production
+raw_origins = os.getenv("ALLOWED_ORIGINS", "")
+if raw_origins:
+    ALLOWED_ORIGINS = [o.strip() for o in raw_origins.split(",") if o.strip()]
+else:
+    ALLOWED_ORIGINS = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS if os.getenv("ALLOWED_ORIGINS") else ["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
@@ -32,6 +32,10 @@ app.include_router(rag_router)
 @app.post("/chat-multilingual")
 async def chat_multilingual_endpoint(request: ChatRequest):
     return await chat_multilingual(request)
+
+@app.get("/")
+async def root():
+    return {"status": "ok", "service": "StartupHub AI Backend"}
 
 if __name__ == "__main__":
     import uvicorn

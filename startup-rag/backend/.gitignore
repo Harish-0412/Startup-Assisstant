@@ -9,3 +9,8 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+# ChromaDB — never commit vector DB data
+data/
+*.sqlite3
+*.parquet
